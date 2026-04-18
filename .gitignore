@@ -1,0 +1,17 @@
+# Python
+__pycache__/
+*.pyc
+venv/
+
+
+# Secrets
+.env
+
+
+# Stockfish history
+engine/
+
+
+# Editor clutter
+.vscode/
+.DS_Store
