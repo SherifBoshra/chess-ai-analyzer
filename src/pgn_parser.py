@@ -12,8 +12,12 @@ def parse_game(pgn_path):
     for game_moves in game.mainline_moves():
         san_nota = board.san(game_moves)
         board.push(game_moves)
+        if board.turn == chess.WHITE:
+                turn = "Black"
+        else:
+                turn ="White"
         fen_str = board.fen()
-        moves.append( {"SAN" : san_nota , "FEN" : fen_str })
+        moves.append( {"SAN" : san_nota , "FEN" : fen_str , "Turn" : turn})
 
     return moves
 
@@ -21,4 +25,4 @@ def parse_game(pgn_path):
 if __name__ == "__main__":
     result = parse_game("data/sample.pgn")
     for i, m in enumerate(result, 1):
-        print(f"Move {i}: {m['SAN']} , {m['FEN']}")        
+        print(f"Move {i}: {m['SAN']} - {m['Turn']}")        
